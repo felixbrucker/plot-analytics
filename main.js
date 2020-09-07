@@ -13,7 +13,7 @@ program
 
 program
   .command('show-block-wins <plot-directories...>')
-  .option('--coin [coin]', 'select the coin to use, currently only BURST is supported', 'BURST')
+  .option('--coin [coin]', 'select the coin to use, currently BURST and BHD are supported', 'BURST')
   .option('--url [url]', 'select the wallet url to use', 'https://wallet1.burst-team.us:2083')
   .description('Check the supplied directories for plot files and show each plot files block wins count')
   .action(showBlockWinsHandler);
