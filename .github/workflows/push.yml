@@ -1,0 +1,20 @@
+on: push
+name: Audit and Publish
+jobs:
+  auditAndPublish:
+    name: Audit and Publish
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12'
+    - name: Install dependencies
+      run: yarn install
+    - name: Audit dependencies
+      run: yarn audit --groups dependencies
+    - name: Publish to npm
+      if: startsWith(github.ref, 'refs/tags/')
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      run: yarn publish

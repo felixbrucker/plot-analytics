@@ -1,0 +1,27 @@
+{
+  "name": "plot-analytics",
+  "version": "1.0.0",
+  "dependencies": {
+    "bignumber.js": "^9.0.0",
+    "lodash": "^4.17.20",
+    "axios": "^0.20.0",
+    "commander": "^6.1.0",
+    "moment": "^2.27.0"
+  },
+  "devDependencies": {
+    "pkg": "^4.4.9"
+  },
+  "bin": {
+    "plot-analytics": "./main.js"
+  },
+  "scripts": {
+    "start": "node main.js",
+    "build": "pkg --out-path builds ."
+  },
+  "pkg": {
+    "targets": [
+      "node12-win-x64",
+      "node12-linux-x64"
+    ]
+  }
+}
